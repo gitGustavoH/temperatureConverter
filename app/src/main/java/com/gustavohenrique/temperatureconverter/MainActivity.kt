@@ -16,18 +16,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val celsius: TextView = findViewById(R.id.Celsius)
-        val f: TextView = findViewById(R.id.r)
-        var resultado = 0
+        var celsiusTextView: TextView = findViewById(R.id.Celsius)
+        val fTextView: TextView = findViewById(R.id.r)
+        var resultado = 0.0
 
         fun calCelsiusToF() {
-            resultado = BigDecimal.valueOf(celsius * 1.8) + 32
+            val celsiusString = celsiusTextView.text.toString()
+
+            var celsius = celsiusString.toDouble()
+             resultado = (celsius * 1.8) + 32
         }
 
-        //
+        fun calFtoCelsius() {
+            val fString = fTextView.text.toString()
+
+            var f = fString.toDouble()
+            resultado = (f - 32) / 1.8
+        }
+
 
 
 
     }
 }
+
+
 
